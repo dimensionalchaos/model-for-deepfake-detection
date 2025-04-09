@@ -30,3 +30,4 @@ Thumbs.db
 
 # Pip wheel
 *.whl
+.vercel

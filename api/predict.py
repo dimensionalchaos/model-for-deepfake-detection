@@ -7,7 +7,7 @@ from tensorflow.keras.models import load_model
 from PIL import Image
 import joblib  # for loading PCA/LDA if you saved them
 import os
-
+from sklearn.decomposition import PCA
 app = FastAPI()
 
 # Load model and any preprocessing objects
@@ -17,29 +17,33 @@ model = load_model(MODEL_PATH)
 # If you used PCA/LDA, load them too
 # pca = joblib.load("model/pca.pkl")
 # lda = joblib.load("model/lda.pkl")
+x = []
+x = np.array(x)
+def preproccess_images(images):
+    img_size = (64, 64)  # Resize images to a fixed size
+    folder = "./imges"
+    load_images_from_folder(folder,label="data")
+    num_pca_components = 100  # Number of principal components to retain
+    pca = PCA(n_components=num_pca_components)
+    x = pca.fit_transform(x)
+    num_lda_components = min(len(np.unique(y_train)) - 1, num_pca_components)  # LDA max components = classes - 1
+    lda = LDA(n_components=num_lda_components)
+    x = lda.fit_transform(x)
+# Lists to store image data and labels
 
-def extract_features(image_bytes):
-    # Convert bytes to PIL image
-    img = Image.open(io.BytesIO(image_bytes)).convert('L')
-    img = img.resize((64, 64))
-    img_np = np.array(img).astype("uint8")
 
-    # --- Your preprocessing goes here ---
-    img_flat = img_np.flatten().reshape(1, -1)
 
-    # Apply PCA + LDA if needed
-    # img_pca = pca.transform(img_flat)
-    # img_lda = lda.transform(img_pca)
-    # features = img_lda
-
-    # Or use LBPH if needed
-    # features = extract_lbph_features(img_np)
-
-    # If you fused LBPH + LDA
-    # features = np.concatenate([lbph_feats, lda_feats], axis=1)
-
-    # For now, let’s assume you used raw pixels
-    return img_flat
+# Function to load images
+def load_images_from_folder(folder, label):
+    for filename in os.listdir(folder):
+        img_path = os.path.join(folder, filename)
+        img = cv2.imread(img_path, cv2.IMREAD_GRAYSCALE)  # Convert to grayscale
+        if img is not None:
+            img = cv2.resize(img, img_size)  # Resize to standard size
+            x.append(img.flatten())  # Flatten image into 1D array
+            
+            
+def applyldaandpca():
 
 @app.post("/predict")
 async def predict(file: UploadFile = File(...)):
