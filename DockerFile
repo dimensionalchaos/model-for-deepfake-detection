@@ -1,9 +1,21 @@
-FROM python:3.11
+FROM python:3.11-slim
+
+# Set work directory
 WORKDIR /code
-COPY ./requirements.txt /code/requirements.txt
-RUN pip install --no-cache-dir -r requirements.txt
+
+# Install system dependencies (for OpenCV and others)
+RUN apt-get update && apt-get install -y \
+    libgl1-mesa-glx \
+    libglib2.0-0 \
+    && rm -rf /var/lib/apt/lists/*
+
+# Copy project files
 COPY ./api /code/api
 COPY ./model /code/model
-EXPOSE 8000
-CMD ["uvicorn", "api.server:app", "--host", "0.0.0.0"]
+COPY requirements.txt .
 
+# Install Python dependencies
+RUN pip install --no-cache-dir -r requirements.txt
+
+# Run the app
+CMD ["uvicorn", "api.predict:app", "--host", "0.0.0.0", "--port", "8000"]

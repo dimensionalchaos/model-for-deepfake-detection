@@ -9,7 +9,7 @@ import os
 app = FastAPI()
 
 # Paths
-MODEL_PATH = os.path.join(os.path.dirname(__file__), "../model/model.h5")
+MODEL_PATH = os.path.join(os.path.dirname(__file__), "../model/my_model.h5")
 PCA_PATH = os.path.join(os.path.dirname(__file__), "../model/lda_and_pca_models/pca_model.pkl")
 LDA_PATH = os.path.join(os.path.dirname(__file__), "../model/lda_and_pca_models/lda_model.pkl")
 IMG_SIZE = (64, 64)
@@ -65,7 +65,7 @@ async def homepage():
                         body: formData
                     });
                     const data = await response.json();
-                    resultText.textContent = `Prediction: ${data.label} (Confidence: ${data.confidence.toFixed(4)})`;
+                    resultText.textContent = `Prediction: ${data.label}`;
                 } catch (err) {
                     resultText.textContent = "Error: " + err.message;
                 }
@@ -83,6 +83,6 @@ async def predict(file: UploadFile = File(...)):
         features = preprocess_uploaded_image(contents)
         pred = model.predict(features)[0][0]
         label = "fake" if pred > 0.5 else "real"
-        return JSONResponse(content={"label": label, "confidence": float(pred)})
+        return JSONResponse(content={"label": label})
     except Exception as e:
         return JSONResponse(status_code=500, content={"error": str(e)})

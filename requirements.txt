@@ -1,7 +1,8 @@
-scikit-learn
-keras
 fastapi
 uvicorn
 numpy
-joblib
 opencv-python
+tensorflow
+joblib
+scikit-learn
+python-multipart
