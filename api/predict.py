@@ -23,12 +23,7 @@ def preproccess_images(images):
     img_size = (64, 64)  # Resize images to a fixed size
     folder = "./imges"
     load_images_from_folder(folder,label="data")
-    num_pca_components = 100  # Number of principal components to retain
-    pca = PCA(n_components=num_pca_components)
-    x = pca.fit_transform(x)
-    num_lda_components = min(len(np.unique(y_train)) - 1, num_pca_components)  # LDA max components = classes - 1
-    lda = LDA(n_components=num_lda_components)
-    x = lda.fit_transform(x)
+    x = applyldaandpca(x)
 # Lists to store image data and labels
 
 
@@ -43,8 +38,13 @@ def load_images_from_folder(folder, label):
             x.append(img.flatten())  # Flatten image into 1D array
             
             
-def applyldaandpca():
-
+            
+def applyldaandpca(x):
+    pca = joblib.load('../model/lda_and_pca_models/lda_model.pkl')
+    lda = joblib.load('../model/lda_and_pca_nodels/pca_model.pkl')
+    x = pca.transform(x)
+    x = lda.transform(x)
+    return x
 @app.post("/predict")
 async def predict(file: UploadFile = File(...)):
     contents = await file.read()
