@@ -5,4 +5,5 @@ RUN pip install --no-cache-dir -r requirements.txt
 COPY ./api /code/api
 COPY ./model /code/model
 EXPOSE 8000
-CMD["uvicorn","api.server:app",'',"--host","0.0.0.0"]
+CMD ["uvicorn", "api.server:app", "--host", "0.0.0.0"]
+
