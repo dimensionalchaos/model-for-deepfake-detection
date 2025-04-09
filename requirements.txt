@@ -1,0 +1,8 @@
+scikit-learn
+keras
+fastpi
+uvicorn
+numpy
+os
+joblib
+opencv-python
