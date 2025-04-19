@@ -22,11 +22,4 @@ To run this project, clone the repository and install the necessary dependencies
 git clone https://github.com/yourusername/face-real-fake-prediction.git
 cd face-real-fake-prediction
 pip install -r requirements.txt
-tensorflow==2.9.0
-scikit-learn==0.24.2
-opencv-python==4.5.3.56
-fastapi==0.75.0
-joblib==1.0.1
-scikit-image==0.18.3
-uvicorn==0.17.6
 
