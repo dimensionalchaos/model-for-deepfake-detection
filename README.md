@@ -84,9 +84,9 @@ The directory structure should look like:
     /real
     /fake
 
-    /real contains real face images.
+/real contains real face images.
 
-    /fake contains fake face images.
+/fake contains fake face images.
 
 Ensure that the dataset is placed correctly in the train/real and train/fake directories.
 
