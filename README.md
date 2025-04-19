@@ -22,9 +22,9 @@ To run this project, clone the repository and install the necessary dependencies
 git clone https://github.com/yourusername/face-real-fake-prediction.git
 cd face-real-fake-prediction
 pip install -r requirements.txt
+```
 
-
-# 📘 Project Requirements
+## 📘 Project Requirements
 
 This project depends on the following Python libraries:
 
@@ -45,5 +45,5 @@ opencv-python
 fastapi
 joblib
 scikit-image
-
+```
 
