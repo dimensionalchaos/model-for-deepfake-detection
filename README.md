@@ -46,35 +46,35 @@ fastapi
 joblib
 scikit-image
 ```
-##Model Overview
+## Model Overview
 
 The model is based on the following steps:
 
-    Image Preprocessing:
+#Image Preprocessing:
 
-        Load and preprocess the images, converting them to grayscale and resizing them to 64x64 pixels.
+Load and preprocess the images, converting them to grayscale and resizing them to 64x64 pixels.
 
-    Feature Engineering:
+Feature Engineering:
 
-        PCA (Principal Component Analysis) is applied for dimensionality reduction.
+PCA (Principal Component Analysis) is applied for dimensionality reduction.
 
-        LDA (Linear Discriminant Analysis) is used for enhancing class separation.
+LDA (Linear Discriminant Analysis) is used for enhancing class separation.
 
-        LBPH (Local Binary Patterns Histogram) is used to extract texture features.
+LBPH (Local Binary Patterns Histogram) is used to extract texture features.
 
-    Feature Fusion:
+Feature Fusion:
 
-        The features from PCA, LDA, and LBPH are combined to form a feature vector.
+The features from PCA, LDA, and LBPH are combined to form a feature vector.
 
-    CNN Model:
+CNN Model:
 
-        A simple Convolutional Neural Network (CNN) is used for final classification, achieving high accuracy with the fused feature set.
+ A simple Convolutional Neural Network (CNN) is used for final classification, achieving high accuracy with the fused feature set.
 
-    Prediction:
+Prediction:
 
-        The trained model can be used to predict whether a given image is real or fake.
+The trained model can be used to predict whether a given image is real or fake.
 
-##Dataset
+## Dataset
 
 The dataset used for training and testing is the Real vs Fake Faces Dataset. It contains images labeled as "real" and "fake" faces.
 
