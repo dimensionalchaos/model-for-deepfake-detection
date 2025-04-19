@@ -23,3 +23,31 @@ git clone https://github.com/yourusername/face-real-fake-prediction.git
 cd face-real-fake-prediction
 pip install -r requirements.txt
 
+
+📦 Requirements
+
+This project requires the following libraries:
+
+    Python 3.x
+
+    TensorFlow 2.x
+
+    scikit-learn
+
+    OpenCV
+
+    FastAPI
+
+    Joblib
+
+    scikit-image
+
+The dependencies can be installed using the following requirements.txt file:
+
+tensorflow>=2.0.0
+scikit-learn
+opencv-python
+fastapi
+joblib
+scikit-image
+
