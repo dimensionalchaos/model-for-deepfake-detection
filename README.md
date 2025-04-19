@@ -50,7 +50,7 @@ scikit-image
 
 The model is based on the following steps:
 
-#Image Preprocessing:
+### Image Preprocessing:
 
 Load and preprocess the images, converting them to grayscale and resizing them to 64x64 pixels.
 
@@ -62,11 +62,11 @@ LDA (Linear Discriminant Analysis) is used for enhancing class separation.
 
 LBPH (Local Binary Patterns Histogram) is used to extract texture features.
 
-Feature Fusion:
+### Feature Fusion:
 
 The features from PCA, LDA, and LBPH are combined to form a feature vector.
 
-CNN Model:
+### CNN Model:
 
  A simple Convolutional Neural Network (CNN) is used for final classification, achieving high accuracy with the fused feature set.
 
