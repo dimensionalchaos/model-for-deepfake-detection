@@ -7,8 +7,7 @@
 3. [Model Overview](#model-overview)
 4. [Dataset](#dataset)
 5. [FastAPI API](#fastapi-api)
-6. [Example Usage](#example-usage)
-7. [License](#license)
+
 
 ## Introduction
 
@@ -91,7 +90,7 @@ fake contains fake face images.
 Ensure that the dataset is placed correctly in the train/real and train/fake directories.
 
 
-## FastAPI API
+## FastAPI 
 
 This project includes a FastAPI application that allows you to upload an image and get a prediction of whether the face is real or fake.
 Running the FastAPI Server
