@@ -91,7 +91,7 @@ fake contains fake face images.
 Ensure that the dataset is placed correctly in the train/real and train/fake directories.
 
 
-##FastAPI API
+## FastAPI API
 
 This project includes a FastAPI application that allows you to upload an image and get a prediction of whether the face is real or fake.
 Running the FastAPI Server
