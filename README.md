@@ -24,30 +24,26 @@ cd face-real-fake-prediction
 pip install -r requirements.txt
 
 
-📦 Requirements
+# 📘 Project Requirements
 
-This project requires the following libraries:
+This project depends on the following Python libraries:
 
-    Python 3.x
+- Python 3.x  
+- TensorFlow 2.x  
+- scikit-learn  
+- OpenCV  
+- FastAPI  
+- Joblib  
+- scikit-image  
 
-    TensorFlow 2.x
+These dependencies can be installed using the following `requirements.txt` file:
 
-    scikit-learn
-
-    OpenCV
-
-    FastAPI
-
-    Joblib
-
-    scikit-image
-
-The dependencies can be installed using the following requirements.txt file:
-
+```txt
 tensorflow>=2.0.0
 scikit-learn
 opencv-python
 fastapi
 joblib
 scikit-image
+
 
