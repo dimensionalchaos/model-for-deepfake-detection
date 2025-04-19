@@ -46,7 +46,7 @@ fastapi
 joblib
 scikit-image
 ```
-Model Overview
+##Model Overview
 
 The model is based on the following steps:
 
@@ -74,19 +74,38 @@ The model is based on the following steps:
 
         The trained model can be used to predict whether a given image is real or fake.
 
-Dataset
+##Dataset
 
 The dataset used for training and testing is the Real vs Fake Faces Dataset. It contains images labeled as "real" and "fake" faces.
 
 The directory structure should look like:
 
-/train
-    /real
-    /fake
+train
+    real
+    fake
 
-/real contains real face images.
+real contains real face images.
 
-/fake contains fake face images.
+fake contains fake face images.
 
 Ensure that the dataset is placed correctly in the train/real and train/fake directories.
+
+
+##FastAPI API
+
+This project includes a FastAPI application that allows you to upload an image and get a prediction of whether the face is real or fake.
+Running the FastAPI Server
+
+Run the following command to start the FastAPI server:
+```bash
+python -m uvicorn main:app --reload
+```
+Visit http://127.0.0.1:8000 in your browser to access the upload form.
+#Upload an Image for Prediction
+
+    Open the webpage.
+
+    Click the "Choose File" button to upload an image.
+
+    The model will process the image and provide a prediction: whether the image is real or fake.
 
