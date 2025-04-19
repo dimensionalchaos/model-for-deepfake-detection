@@ -26,7 +26,7 @@ Thumbs.db
 .vercel/
 
 # Colab files (if you sync with it)
-*.ipynb
+
 
 # Pip wheel
 *.whl
